@@ -1,9 +1,11 @@
-package org.hiibernate;
+package org.HQL;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hiibernate.Users;
 
-public class Insert {
+public class UpdateRecords {
 
 	public static void main(String[] args) {
 
@@ -13,15 +15,10 @@ public class Insert {
 		Session session = factory.getCurrentSession();
 
 		try {
-			// Create object of entity class type
-			Users user = new Users("nawazakib", "45rew4", "akib", "nawaz");
-			// Start transaction
 			session.beginTransaction();
-			// Perform operation
-			session.save(user);
-			// Commit the transaction
+			session.createQuery("update users set password = 'passwordnawaz' " + "where lastName = 'nawaz'")
+					.executeUpdate();
 			session.getTransaction().commit();
-			System.out.println("Row added!");
 
 		} finally {
 			session.close();

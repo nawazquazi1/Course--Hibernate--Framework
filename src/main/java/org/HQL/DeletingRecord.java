@@ -1,10 +1,11 @@
-package org.hiibernate;
+package org.HQL;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hiibernate.Users;
 
-public class Insert {
-
+public class DeletingRecord {
 	public static void main(String[] args) {
 
 		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Users.class)
@@ -13,15 +14,9 @@ public class Insert {
 		Session session = factory.getCurrentSession();
 
 		try {
-			// Create object of entity class type
-			Users user = new Users("nawazakib", "45rew4", "akib", "nawaz");
-			// Start transaction
 			session.beginTransaction();
-			// Perform operation
-			session.save(user);
-			// Commit the transaction
+			session.createQuery("delete from users where userid =5").executeUpdate();
 			session.getTransaction().commit();
-			System.out.println("Row added!");
 
 		} finally {
 			session.close();

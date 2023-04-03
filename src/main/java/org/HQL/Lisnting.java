@@ -1,10 +1,13 @@
-package org.hiibernate;
+package org.HQL;
+
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hiibernate.Users;
 
-public class Insert {
-
+public class Lisnting {
 	public static void main(String[] args) {
 
 		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Users.class)
@@ -13,15 +16,14 @@ public class Insert {
 		Session session = factory.getCurrentSession();
 
 		try {
-			// Create object of entity class type
-			Users user = new Users("nawazakib", "45rew4", "akib", "nawaz");
 			// Start transaction
 			session.beginTransaction();
-			// Perform operation
-			session.save(user);
-			// Commit the transaction
-			session.getTransaction().commit();
-			System.out.println("Row added!");
+
+			List<Users> users = session.createQuery("from users").getResultList();
+
+			for (Users temp : users) {
+				System.out.println(temp);
+			}
 
 		} finally {
 			session.close();
