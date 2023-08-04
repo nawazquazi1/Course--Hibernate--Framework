@@ -1,9 +1,9 @@
-package org.HQL;
+package main.java.org.HQL;
 
+import main.java.org.hibernate.Users;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hiibernate.Users;
 
 public class DeletingRecord {
 	public static void main(String[] args) {
