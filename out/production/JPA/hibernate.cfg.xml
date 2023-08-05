@@ -29,6 +29,10 @@
         <mapping class="main.java.org.tut.Student"/>
         <mapping class="main.java.org.tut.Address"/>
         <mapping class="main.java.org.tut.Certificate"/>
+        <mapping class="main.java.org.map.Answer"/>
+        <mapping class="main.java.org.map.Question"/>
+        <mapping class="main.java.org.map1.Emp"/>
+        <mapping class="main.java.org.map1.Project"/>
 
 
     </session-factory>
