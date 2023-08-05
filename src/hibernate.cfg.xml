@@ -19,6 +19,10 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 
+        <!-- Second Level Cache-->
+        <property name="cache.use_second_level_cache">true</property>
+        <property name="cache.region.factory_class">
+            org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
 
         <!-- Show SQL on console -->
         <property name="show_sql">true</property>
@@ -33,6 +37,7 @@
         <mapping class="main.java.org.map.Question"/>
         <mapping class="main.java.org.map1.Emp"/>
         <mapping class="main.java.org.map1.Project"/>
+        <mapping resource="main/java/org/xml/Person.hbm.xml" />
 
 
     </session-factory>
